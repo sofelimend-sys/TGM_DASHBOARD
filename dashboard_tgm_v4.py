@@ -638,7 +638,7 @@ else:
     color = m["color"]
     u = "%" if m["unidad"] == "%" else f" {m['unidad']}"
 
-    banner(f"{m['icono']} CAUSA {m['id'][1]} · {m['nombre'].upper()}",
+    banner(f"{m['icono']} CAUSA {ORDEN_MENU.index(m['id']) + 1} · {m['nombre'].upper()}",
            f"Causa raíz: {m['causa']}", color, ROJO if color != ROJO else NAVY,
            [f"📐 Indicador: {m['ind']}", f"🧰 Metodología: {m['metodo']}",
             f"📏 Parámetro (estándar): {m['estandar']:,.1f}{u}"])
@@ -766,3 +766,4 @@ else:
         for c_ in det.columns[1:]:
             det[c_] = det[c_].map(lambda v: f"{v:,.1f}")
         tabla(det, alto=320, num=tuple(det.columns[1:]))
+        
